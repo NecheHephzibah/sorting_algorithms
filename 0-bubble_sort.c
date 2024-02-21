@@ -32,17 +32,8 @@ void bubble_sort(int *array, size_t size)
 
 				swapped = 1;
 			}
-		}
-		if (swapped)
-		{
-			_printf("%u: ", i + 1);
-			for (j = 0; j < size; j++)
-			{
-				_printf("%d", array[j]);
-				if (j < size - 1)
-					_printf(", ");
-			}
-			_printf("\n");
+			if (swapped)
+				print_array(array, size);
 		}
 
 		if (!swapped)
