@@ -1,6 +1,5 @@
 #include "sort.h"
 
-void print_list(const listint_t *list);
 
 /**
   * insertion_sort_list - function that sorts a doubly linked list of integers
@@ -12,8 +11,7 @@ void print_list(const listint_t *list);
 
 void insertion_sort_list(listint_t **list)
 {
-	listint *temp, *curr;
-	int value;
+	listint_t *temp, *curr;
 
 	if (list == NULL || *list == NULL)
 		return;
@@ -22,30 +20,20 @@ void insertion_sort_list(listint_t **list)
 	while (curr != NULL)
 	{
 		temp = curr;
-		value = curr->n;
 
-		while (temp->prev != NULL && temp->prev->n > value)
+		while (temp->prev != NULL && temp->prev->n > temp->n)
 		{
-			temp->n = temp->prev->n;
-			temp = temp->prev;
+			temp->prev->next = temp->next;
+			if (temp->next != NULL)
+				temp->next->prev = temp->prev;
+			temp->next = temp->prev;
+			temp->prev = temp->next->prev;
+			temp->next->prev = temp;
+			if (temp->prev != NULL)
+				temp->prev->next = temp;
+			else
+				*list = temp;
 		}
-		temp->n = value;
 		curr = curr->next;
 	}
-}
-
-
-/**
- * print_list - Prints a doubly linked list
- * @list: Pointer to the head of the doubly linked list
- */
-
-void print_list(const listint_t *list)
-{
-	while (list != NULL)
-	{
-		print_list(list->n);
-		list = list->next;
-	}
-	
 }
