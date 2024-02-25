@@ -19,7 +19,7 @@ void shell_sort(int *array, size_t size)
 
 	while (gap >= 1)
 	{
-  	for (i = gap; i < size; i++)
+		for (i = gap; i < size; i++)
 		{
 			temp = array[i];
 			j = i;
