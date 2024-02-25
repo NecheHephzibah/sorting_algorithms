@@ -32,6 +32,6 @@ void selection_sort(int *array, size_t size)
 			array[min_idx] = temp;
 			print_array(array, size);
 		}
-	}	
+	}
 }
 
