@@ -64,6 +64,7 @@ int lomuto_partition(int *array, int low, int high, size_t size)
 void recursively_sort(int *array, int low, int high, size_t size)
 {
 	int key;
+
 	if (low < high)
 	{
 		key = lomuto_partition(array, low, high, size);
