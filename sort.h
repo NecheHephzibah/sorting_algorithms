@@ -5,6 +5,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define UP 0
+#define DOWN 1
+
+
 /**
  * enum bool - Enumeration of Boolean values.
  * @false: Equals 0.
@@ -47,7 +51,7 @@ void merge_sort(int *array, size_t size);
 void heap_sort(int *array, size_t size);
 void radix_sort(int *array, size_t size);
 void quick_sort_hoare(int *array, size_t size);
-
+void bitonic_sort(int *array, size_t size);
 
 
 #endif /* SORT_H */
